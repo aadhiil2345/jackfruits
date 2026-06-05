@@ -126,19 +126,13 @@ img {
 }
 
 .primary-link,
-.submit-btn {
+.gallery-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
-  padding: 0 22px;
   border: 0;
-  border-radius: 6px;
-  background: var(--sun);
-  color: var(--ink);
   font-weight: 900;
   cursor: pointer;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
 }
 
 .orbit {
@@ -221,11 +215,21 @@ section {
   position: relative;
   display: grid;
   grid-template-columns: 56px minmax(0, 1fr) 56px;
+  grid-template-areas: "prev photo next";
   gap: 18px;
   align-items: center;
 }
 
+.gallery-btn.prev {
+  grid-area: prev;
+}
+
+.gallery-btn.next {
+  grid-area: next;
+}
+
 .photo-frame {
+  grid-area: photo;
   position: relative;
   margin: 0;
   overflow: hidden;
@@ -365,149 +369,6 @@ section {
   font-weight: 900;
 }
 
-.progress-section {
-  background:
-    linear-gradient(180deg, rgba(255, 243, 207, 0.92), rgba(229, 241, 199, 0.96)),
-    url("https://commons.wikimedia.org/wiki/Special:FilePath/Leaves%20of%20a%20Jackfruit%20Tree.jpg?width=1800") center/cover fixed;
-}
-
-.upload-layout {
-  display: grid;
-  grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
-  gap: 28px;
-  align-items: start;
-}
-
-.upload-panel,
-.timeline-panel {
-  padding: 24px;
-  border: 1px solid rgba(15, 107, 69, 0.16);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 20px 60px rgba(24, 36, 31, 0.12);
-}
-
-.drop-zone {
-  display: grid;
-  place-items: center;
-  min-height: 210px;
-  padding: 24px;
-  border: 2px dashed rgba(15, 107, 69, 0.46);
-  border-radius: 8px;
-  background: #fff8e4;
-  text-align: center;
-  cursor: pointer;
-}
-
-.drop-zone input {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-}
-
-.upload-icon {
-  display: grid;
-  place-items: center;
-  width: 54px;
-  height: 54px;
-  margin-bottom: 10px;
-  border-radius: 50%;
-  background: var(--coral);
-  color: var(--white);
-  font-size: 2rem;
-  line-height: 1;
-}
-
-.drop-zone small {
-  color: #68776e;
-}
-
-.form-row {
-  display: grid;
-  gap: 8px;
-  margin-top: 18px;
-}
-
-.form-row label {
-  font-weight: 900;
-}
-
-input,
-textarea {
-  width: 100%;
-  border: 1px solid rgba(15, 107, 69, 0.26);
-  border-radius: 6px;
-  padding: 13px 14px;
-  color: var(--ink);
-  font: inherit;
-  resize: vertical;
-}
-
-.submit-btn {
-  width: 100%;
-  margin-top: 20px;
-}
-
-.timeline-panel h3 {
-  margin: 0 0 18px;
-  color: var(--leaf);
-  font-size: 1.55rem;
-}
-
-.timeline {
-  display: grid;
-  gap: 16px;
-}
-
-.timeline-item {
-  display: grid;
-  grid-template-columns: 132px minmax(0, 1fr);
-  gap: 16px;
-  align-items: center;
-  padding: 14px;
-  border-radius: 8px;
-  background: #fff3cf;
-  border-left: 5px solid var(--moss);
-  animation: growIn 0.45s ease both;
-}
-
-.timeline-item img {
-  height: 110px;
-  border-radius: 6px;
-  object-fit: cover;
-}
-
-.timeline-item h4 {
-  margin: 0 0 7px;
-  color: var(--leaf);
-}
-
-.timeline-item p {
-  margin: 0;
-  color: #4b5d53;
-  line-height: 1.55;
-}
-
-.timeline-item time {
-  display: inline-block;
-  margin-top: 8px;
-  color: var(--coral);
-  font-size: 0.82rem;
-  font-weight: 900;
-}
-
-@keyframes growIn {
-  from {
-    opacity: 0;
-    transform: translateY(16px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
 @media (max-width: 760px) {
   .site-header {
     position: absolute;
@@ -515,6 +376,64 @@ textarea {
     gap: 16px;
     flex-direction: column;
   }
+
+  /* Make Planting Day gallery feel like a full-screen viewer */
+  #planting {
+    padding-top: 84px;
+    padding-bottom: 84px;
+  }
+
+  .gallery-shell {
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    grid-template-areas: "prev photo next";
+    align-items: stretch;
+    gap: 12px;
+  }
+
+
+  .photo-frame {
+    width: 100%;
+    border-width: 8px;
+    border-radius: 18px;
+    box-shadow: 0 24px 68px rgba(24, 36, 31, 0.22);
+  }
+
+.photo-frame img {
+    /* Mobile: avoid over-tall viewer on short screens */
+    height: min(65vh, 560px);
+    min-height: 320px;
+    border-radius: 10px;
+  }
+
+  .photo-frame figcaption {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+    border-radius: 10px;
+  }
+
+  .gallery-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 1.55rem;
+    align-self: center;
+  }
+
+
+  .gallery-btn.prev {
+    transform: none;
+  }
+
+  .gallery-btn.next {
+    transform: none;
+  }
+
+  .photo-frame {
+    touch-action: pan-y;
+  }
+
 
   .nav-links {
     width: 100%;
@@ -524,9 +443,7 @@ textarea {
   }
 
   .gallery-shell,
-  .plant-card,
-  .upload-layout,
-  .timeline-item {
+  .plant-card {
     grid-template-columns: 1fr;
   }
 
@@ -540,13 +457,16 @@ textarea {
   }
 
   .gallery-shell {
-    grid-template-columns: 56px 56px;
+   
+    grid-template-areas: "prev photo next";
     justify-content: center;
+    row-gap: 12px;
   }
 
   .photo-frame {
-    grid-column: 1 / -1;
+    width: 100%;
   }
+
 
   .gallery-btn {
     justify-self: center;
@@ -561,9 +481,10 @@ textarea {
   }
 
   .photo-frame img {
-    height: 72vw;
-    min-height: 310px;
+    height: min(78vh, 720px);
+    min-height: 420px;
   }
+
 
   .fact-grid {
     grid-template-columns: 1fr;
@@ -592,10 +513,7 @@ textarea {
     left: 10px;
     right: 10px;
     bottom: 10px;
-  }
-
-  .upload-panel,
-  .timeline-panel {
-    padding: 18px;
+    padding: 12px;
+    font-size: 0.92rem;
   }
 }

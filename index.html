@@ -16,7 +16,6 @@
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#planting">Planting</a>
         <a href="#details">Details</a>
-        <a href="#progress">Progress</a>
       </nav>
     </header>
 
@@ -130,56 +129,6 @@
         </div>
       </section>
 
-      <section id="progress" class="progress-section" aria-labelledby="progress-title">
-        <div class="section-heading">
-          <p class="eyebrow">Section 02</p>
-          <h2 id="progress-title">Upload Plant Progress</h2>
-          <p>
-            Visitors can add a fresh photo and note whenever the jackfruit grows
-            new leaves, gains height, or needs care.
-          </p>
-        </div>
-
-        <div class="upload-layout">
-          <form class="upload-panel" id="progressForm">
-            <label class="drop-zone" for="plantPhoto">
-              <input id="plantPhoto" name="plantPhoto" type="file" accept="image/*" />
-              <span class="upload-icon">+</span>
-              <strong>Choose plant photo</strong>
-              <small>PNG, JPG, or WEBP</small>
-            </label>
-
-            <div class="form-row">
-              <label for="progressTitle">Progress title</label>
-              <input
-                id="progressTitle"
-                name="progressTitle"
-                type="text"
-                placeholder="New leaves appeared"
-                required
-              />
-            </div>
-
-            <div class="form-row">
-              <label for="progressNote">Observation note</label>
-              <textarea
-                id="progressNote"
-                name="progressNote"
-                rows="4"
-                placeholder="Write the height, leaf colour, watering update, or care activity..."
-                required
-              ></textarea>
-            </div>
-
-            <button class="submit-btn" type="submit">Add Progress</button>
-          </form>
-
-          <div class="timeline-panel" aria-live="polite">
-            <h3>Growth Timeline</h3>
-            <div id="timeline" class="timeline"></div>
-          </div>
-        </div>
-      </section>
     </main>
 
     <script src="script.js"></script>

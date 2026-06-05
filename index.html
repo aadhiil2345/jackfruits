@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jackfruit Tree</title>
+    <link rel="preconnect" href="https://commons.wikimedia.org" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Jackfruit exhibition home">
+        <span class="brand-mark"></span>
+        Jackfruit tree
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#planting">Planting</a>
+        <a href="#details">Details</a>
+        <a href="#progress">Progress</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="orbit one"></div>
+        <div class="orbit two"></div>
+        <div class="hero-content">
+          <p class="eyebrow">ABOUT THE TREE</p>
+          <h1 id="hero-title">Jackfruit</h1>
+          <p>
+            A community planting showcase following one young jackfruit tree
+            from its first soil day to future harvest shade.
+          </p>
+       
+        </div>
+      </section>
+
+      <section id="planting" class="gallery-section" aria-labelledby="gallery-title">
+        <div class="section-heading">
+          <p class="eyebrow">Section 01</p>
+          <h2 id="gallery-title">Planting Day Photos</h2>
+        </div>
+
+        <div class="gallery-shell">
+          <button class="gallery-btn prev" type="button" aria-label="Previous photo">
+            &#10094;
+          </button>
+          <figure class="photo-frame">
+            <img id="galleryImage" src="" alt="" />
+            <figcaption>
+              <span id="photoCount"></span>
+              <strong id="galleryCaption"></strong>
+            </figcaption>
+          </figure>
+          <button class="gallery-btn next" type="button" aria-label="Next photo">
+            &#10095;
+          </button>
+        </div>
+      </section>
+
+      <section id="details" class="details-section" aria-labelledby="details-title">
+        <div class="plant-card">
+          <div>
+            <p class="eyebrow">The Planted Tree</p>
+            <h2 id="details-title">About the Jackfruit Plant</h2>
+            <p>
+              Jackfruit is a tropical evergreen fruit tree known scientifically
+              as <em>Artocarpus heterophyllus</em>. The planted jackfruit
+              belongs to the Moraceae family and is loved for its huge textured
+              fruits, glossy leaves, sturdy trunk, and generous shade.
+            </p>
+            <p lang="ml">
+              ചക്ക ഒരു നല്ല ഫലവൃക്ഷമാണ്. ഇതിന്റെ ശാസ്ത്രീയ നാമം
+              <em>Artocarpus heterophyllus</em> എന്നാണ്. ചക്കമരത്തിന് വലിയ
+              ഇലകളും ഉറച്ച തണ്ടും വലിയ പഴങ്ങളും ഉണ്ടാകും.
+            </p>
+            <p>
+              It grows best in warm, humid climates with rich, well-drained soil.
+              A healthy jackfruit tree can become a strong shade tree and later
+              produce large green fruits with golden, fragrant bulbs inside.
+            </p>
+            <p lang="ml">
+              ചൂടുള്ള സ്ഥലത്ത് ചക്കമരം നന്നായി വളരും. നല്ല മണ്ണും വെള്ളവും
+              കിട്ടിയാൽ ഇത് വേഗത്തിൽ വളർന്ന് തണലും ചക്കയും നൽകും.
+            </p>
+          </div>
+
+          <ul class="fact-grid" aria-label="Jackfruit plant details">
+            <li>
+              <span>Type</span>
+              Tropical evergreen fruit tree
+            </li>
+            <li>
+              <span>Family</span>
+              Moraceae
+            </li>
+            <li>
+              <span>Climate</span>
+              Warm, humid, frost-free
+            </li>
+            <li>
+              <span>Care</span>
+              Sunlight, deep watering, mulch, space
+            </li>
+          </ul>
+
+          <div class="jackfruit-photos" aria-label="Jackfruit photo collection">
+            <figure>
+              <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Artocarpus%20Heterophyllus.jpg?width=900"
+                alt="Jackfruits growing from a jackfruit tree trunk"
+              />
+              <figcaption>Jackfruit on tree</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Leaves%20of%20a%20Jackfruit%20Tree.jpg?width=900"
+                alt="Healthy green jackfruit tree leaves"
+              />
+              <figcaption>Healthy jackfruit leaves</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Artocarpus%20heterophyllus%20Fruit%20%282%29.jpg?width=900"
+                alt="Close view of a mature jackfruit"
+              />
+              <figcaption>Mature jackfruit fruit</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="progress" class="progress-section" aria-labelledby="progress-title">
+        <div class="section-heading">
+          <p class="eyebrow">Section 02</p>
+          <h2 id="progress-title">Upload Plant Progress</h2>
+          <p>
+            Visitors can add a fresh photo and note whenever the jackfruit grows
+            new leaves, gains height, or needs care.
+          </p>
+        </div>
+
+        <div class="upload-layout">
+          <form class="upload-panel" id="progressForm">
+            <label class="drop-zone" for="plantPhoto">
+              <input id="plantPhoto" name="plantPhoto" type="file" accept="image/*" />
+              <span class="upload-icon">+</span>
+              <strong>Choose plant photo</strong>
+              <small>PNG, JPG, or WEBP</small>
+            </label>
+
+            <div class="form-row">
+              <label for="progressTitle">Progress title</label>
+              <input
+                id="progressTitle"
+                name="progressTitle"
+                type="text"
+                placeholder="New leaves appeared"
+                required
+              />
+            </div>
+
+            <div class="form-row">
+              <label for="progressNote">Observation note</label>
+              <textarea
+                id="progressNote"
+                name="progressNote"
+                rows="4"
+                placeholder="Write the height, leaf colour, watering update, or care activity..."
+                required
+              ></textarea>
+            </div>
+
+            <button class="submit-btn" type="submit">Add Progress</button>
+          </form>
+
+          <div class="timeline-panel" aria-live="polite">
+            <h3>Growth Timeline</h3>
+            <div id="timeline" class="timeline"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

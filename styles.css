@@ -1,0 +1,601 @@
+:root {
+  --leaf: #1f6f3d;
+  --moss: #7d9632;
+  --sun: #f4c542;
+  --coral: #9b6429;
+  --ink: #18241f;
+  --cream: #fff3cf;
+  --mist: #e5f1c7;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 18px clamp(18px, 4vw, 58px);
+  background: rgba(255, 243, 207, 0.84);
+  border-bottom: 1px solid rgba(15, 107, 69, 0.16);
+  backdrop-filter: blur(18px);
+}
+
+.brand,
+.nav-links a,
+.primary-link {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 800;
+}
+
+.brand-mark {
+  width: 18px;
+  height: 18px;
+  background:
+    radial-gradient(circle at 60% 35%, #ffe18a 0 10%, transparent 11%),
+    radial-gradient(circle at 35% 62%, #ffe18a 0 8%, transparent 9%),
+    var(--leaf);
+  border-radius: 42% 55% 46% 54%;
+  transform: rotate(-12deg);
+}
+
+.nav-links {
+  display: flex;
+  gap: clamp(12px, 3vw, 34px);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: grid;
+  align-items: end;
+  padding: 120px clamp(20px, 6vw, 88px) 54px;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(24, 36, 31, 0.7), rgba(24, 36, 31, 0.12)),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Artocarpus%20Heterophyllus.jpg?width=1800") center/cover;
+  color: var(--white);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 18vh;
+  background: linear-gradient(0deg, var(--cream), transparent);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--sun);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(4.5rem, 14vw, 12rem);
+  line-height: 0.84;
+  letter-spacing: 0;
+}
+
+.hero p:not(.eyebrow) {
+  max-width: 540px;
+  font-size: clamp(1.05rem, 2vw, 1.32rem);
+  line-height: 1.6;
+}
+
+.primary-link,
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--sun);
+  color: var(--ink);
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+.orbit {
+  position: absolute;
+  z-index: 1;
+  width: 260px;
+  height: 260px;
+  border: 2px solid rgba(245, 181, 68, 0.68);
+  border-radius: 50%;
+  animation: seedOrbit 9s linear infinite;
+}
+
+.orbit::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 42px;
+  width: 18px;
+  height: 18px;
+  background: var(--coral);
+  border-radius: 50%;
+}
+
+.orbit.one {
+  right: 8vw;
+  top: 22vh;
+}
+
+.orbit.two {
+  right: 20vw;
+  bottom: 16vh;
+  width: 160px;
+  height: 160px;
+  animation-duration: 6s;
+  animation-direction: reverse;
+}
+
+@keyframes seedOrbit {
+  from {
+    transform: rotate(0deg) translateY(0);
+  }
+  50% {
+    transform: rotate(180deg) translateY(18px);
+  }
+  to {
+    transform: rotate(360deg) translateY(0);
+  }
+}
+
+section {
+  padding: clamp(64px, 8vw, 110px) clamp(18px, 5vw, 74px);
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 32px;
+}
+
+.section-heading h2,
+.plant-card h2 {
+  margin: 0 0 14px;
+  color: var(--leaf);
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.section-heading p:not(.eyebrow),
+.plant-card p {
+  color: #43564c;
+  font-size: 1.03rem;
+  line-height: 1.75;
+}
+
+.gallery-section {
+  background: linear-gradient(135deg, #fff0be, #dbeab4);
+}
+
+.gallery-shell {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) 56px;
+  gap: 18px;
+  align-items: center;
+}
+
+.photo-frame {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: 10px solid var(--white);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 28px 70px rgba(24, 36, 31, 0.2);
+}
+
+.photo-frame img {
+  height: min(64vw, 620px);
+  object-fit: cover;
+  transition: transform 0.55s ease, opacity 0.3s ease;
+}
+
+.photo-frame.switching img {
+  opacity: 0;
+  transform: scale(1.04);
+}
+
+.photo-frame figcaption {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 6px;
+  background: rgba(24, 36, 31, 0.82);
+  color: var(--white);
+  backdrop-filter: blur(10px);
+}
+
+.photo-frame span {
+  color: var(--sun);
+  font-weight: 900;
+}
+
+.gallery-btn {
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--leaf);
+  color: var(--white);
+  font-size: 1.7rem;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(15, 107, 69, 0.26);
+}
+
+.details-section {
+  background: #f4b23e;
+}
+
+.plant-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  gap: clamp(28px, 5vw, 74px);
+  align-items: start;
+  padding: clamp(28px, 5vw, 60px);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.18);
+}
+
+.fact-grid {
+  display: grid;
+  grid-column: 1;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.fact-grid li {
+  min-height: 132px;
+  padding: 20px;
+  border-left: 5px solid var(--coral);
+  border-radius: 6px;
+  background: #fff7dd;
+  color: var(--ink);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.fact-grid span {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--leaf);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+.jackfruit-photos {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.jackfruit-photos figure {
+  position: relative;
+  min-height: 260px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--mist);
+  box-shadow: 0 18px 42px rgba(24, 36, 31, 0.14);
+}
+
+.jackfruit-photos img {
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+  transition: transform 0.55s ease, filter 0.55s ease;
+}
+
+.jackfruit-photos figure:hover img {
+  filter: saturate(1.18);
+  transform: scale(1.08) rotate(1deg);
+}
+
+.jackfruit-photos figcaption {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  background: rgba(24, 36, 31, 0.78);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+
+.progress-section {
+  background:
+    linear-gradient(180deg, rgba(255, 243, 207, 0.92), rgba(229, 241, 199, 0.96)),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Leaves%20of%20a%20Jackfruit%20Tree.jpg?width=1800") center/cover fixed;
+}
+
+.upload-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.upload-panel,
+.timeline-panel {
+  padding: 24px;
+  border: 1px solid rgba(15, 107, 69, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 20px 60px rgba(24, 36, 31, 0.12);
+}
+
+.drop-zone {
+  display: grid;
+  place-items: center;
+  min-height: 210px;
+  padding: 24px;
+  border: 2px dashed rgba(15, 107, 69, 0.46);
+  border-radius: 8px;
+  background: #fff8e4;
+  text-align: center;
+  cursor: pointer;
+}
+
+.drop-zone input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.upload-icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  background: var(--coral);
+  color: var(--white);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.drop-zone small {
+  color: #68776e;
+}
+
+.form-row {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.form-row label {
+  font-weight: 900;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid rgba(15, 107, 69, 0.26);
+  border-radius: 6px;
+  padding: 13px 14px;
+  color: var(--ink);
+  font: inherit;
+  resize: vertical;
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.timeline-panel h3 {
+  margin: 0 0 18px;
+  color: var(--leaf);
+  font-size: 1.55rem;
+}
+
+.timeline {
+  display: grid;
+  gap: 16px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  padding: 14px;
+  border-radius: 8px;
+  background: #fff3cf;
+  border-left: 5px solid var(--moss);
+  animation: growIn 0.45s ease both;
+}
+
+.timeline-item img {
+  height: 110px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.timeline-item h4 {
+  margin: 0 0 7px;
+  color: var(--leaf);
+}
+
+.timeline-item p {
+  margin: 0;
+  color: #4b5d53;
+  line-height: 1.55;
+}
+
+.timeline-item time {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--coral);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+@keyframes growIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    position: absolute;
+    align-items: flex-start;
+    gap: 16px;
+    flex-direction: column;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 0.85rem;
+  }
+
+  .gallery-shell,
+  .plant-card,
+  .upload-layout,
+  .timeline-item {
+    grid-template-columns: 1fr;
+  }
+
+  .fact-grid,
+  .jackfruit-photos {
+    grid-column: auto;
+  }
+
+  .jackfruit-photos {
+    grid-row: auto;
+  }
+
+  .gallery-shell {
+    grid-template-columns: 56px 56px;
+    justify-content: center;
+  }
+
+  .photo-frame {
+    grid-column: 1 / -1;
+  }
+
+  .gallery-btn {
+    justify-self: center;
+  }
+
+  .gallery-btn.prev {
+    transform: none;
+  }
+
+  .gallery-btn.next {
+    transform: none;
+  }
+
+  .photo-frame img {
+    height: 72vw;
+    min-height: 310px;
+  }
+
+  .fact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plant-card {
+    padding: 22px;
+  }
+
+  .jackfruit-photos figure,
+  .jackfruit-photos img {
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 460px) {
+  .hero h1 {
+    font-size: clamp(3.5rem, 22vw, 5.5rem);
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+  }
+
+  .photo-frame figcaption {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .upload-panel,
+  .timeline-panel {
+    padding: 18px;
+  }
+}
